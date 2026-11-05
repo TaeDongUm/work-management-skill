@@ -1,22 +1,26 @@
 # 시험 중 요청문 선택 안내
-개정 2026-11-05. 현재 상황 하나만 선택한다. 실제 제출 파일이 지정돼 있으면 대응표의 경로를 쓴다.
+
+현재 상황 하나만 선택한다. 실제 제출 파일이 지정돼 있으면 대응표의 경로를 쓴다.
 AI 사용이 허용된 작업 단계용이며 후속 AI 금지 문항에서 사용하지 않는다.
 
-| 순서·현재 상황 | 읽을 프롬프트 | 기록할 곳 |
-|---|---|---|
+| 순서·현재 상황           | 읽을 프롬프트                                    | 기록할 곳                               |
+| ------------------------ | ------------------------------------------------ | --------------------------------------- |
 | 1. 처음 과제·데이터 확인 | prompts/discovery/00_UNDERSTAND_TASK_AND_DATA.md | REQUIREMENTS · DATA_MAP · UNDERSTANDING |
-| 2. 업무 조건이 모호함 | prompts/discovery/01_INTERVIEW.md | REQUIREMENTS |
-| 3. 계산·스택·구조 결정 | prompts/design/01_SOLUTION.md | DESIGN · VERIFICATION · WORKLOG |
-| 4. 화면이 필요한 과제 | prompts/ui/01_PLAN.md → 02_BUILD.md | DESIGN · 코드 · WORKLOG |
-| 5. 작은 핵심 흐름 구현 | runtime/WORKFLOW.md와 관련 R/D/T 항목 | 코드 · DESIGN 실제 모듈 표 |
-| 6. 검증·내 설명 확인 | prompts/review/01_REVIEW_AND_EXPLAIN.md | VERIFICATION · UNDERSTANDING |
-| 화면 직접 확인 | prompts/ui/03_REVIEW.md | VERIFICATION |
-| 부족을 보완 작업으로 | prompts/review/02_GAP_REVIEW.md | WORKLOG |
-| 요구·설계·데이터 변경 | prompts/change/PROPAGATE_CHANGE.md | 영향받는 파일만 |
-| 재접속·세션 전환 | runtime/HANDOFF.md | 현재 작업·프로세스·다음 행동 |
-| 제출 준비 | SUBMISSION_DOCUMENT_GUIDE.md | 실제 지정 제출 문서 |
+| 2. 업무 조건이 모호함    | prompts/discovery/01_INTERVIEW.md                | REQUIREMENTS                            |
+| 3. 계산·스택·구조 결정   | prompts/design/01_SOLUTION.md                    | DESIGN · VERIFICATION · WORKLOG         |
+| 4. 화면이 필요한 과제    | prompts/ui/01_PLAN.md → 02_BUILD.md              | DESIGN · 코드 · WORKLOG                 |
+| 5. 작은 핵심 흐름 구현   | runtime/WORKFLOW.md와 관련 R/D/T 항목            | 코드 · DESIGN 실제 모듈 표              |
+| 6. 검증·내 설명 확인     | prompts/review/01_REVIEW_AND_EXPLAIN.md          | VERIFICATION · UNDERSTANDING            |
+| 화면 직접 확인           | prompts/ui/03_REVIEW.md                          | VERIFICATION                            |
+| 부족을 보완 작업으로     | prompts/review/02_GAP_REVIEW.md                  | WORKLOG                                 |
+| 요구·설계·데이터 변경    | prompts/change/PROPAGATE_CHANGE.md               | 영향받는 파일만                         |
+| 재접속·세션 전환         | runtime/HANDOFF.md                               | 현재 작업·프로세스·다음 행동            |
+| 제출 준비                | SUBMISSION_DOCUMENT_GUIDE.md                     | 실제 지정 제출 문서                     |
 
 ## 1. 과제를 처음 열었을 때
+
+예시1
+
 ```text
 제공 README·지침과 runtime/WORKFLOW.md를 확인해줘.
 SUBMISSION_DOCUMENT_GUIDE.md에 따라 실제 제출 문서와 기록 위치를 매핑해줘.
@@ -24,9 +28,27 @@ prompts/discovery/00_UNDERSTAND_TASK_AND_DATA.md로 원문과 데이터를 함�
 핵심 데이터만 압축해 설명하고 내가 과제를 이해했는지 질문 하나를 해줘.
 아직 대규모 구현이나 임의의 요구 추가는 하지 마.
 ```
+
+예시2
+
+```text
+제공된 README와 과제 지침을 확인하고,
+prompts/discovery/00_UNDERSTAND_TASK_AND_DATA.md를 적용해줘.
+
+과제 목표·필수 조건·개선 목표·제출물·미확정을 구분해줘.
+데이터의 의미·관계·단위·누락도 함께 조사해줘.
+
+요구사항은 runtime/REQUIREMENTS.md에,
+데이터 조사 결과는 runtime/DATA_MAP.md에 기록해줘.
+아직 구현하지 마.
+```
+
 완료 판단: 내 말로 입력·목표·필수 조건·대표 사례를 설명하고 중요한 미확정을 구분함.
 
 ## 2. 담당자에게 질문·역제안할 때
+
+예시1
+
 ```text
 prompts/discovery/01_INTERVIEW.md를 적용해줘.
 [실제 답변 또는 남은 쟁점]
@@ -34,9 +56,26 @@ prompts/discovery/01_INTERVIEW.md를 적용해줘.
 모호한 답은 구체적인 재질문 후 기본안·대안·대가를 담은 역제안으로 정리해줘.
 내가 실제 답변을 전달하기 전에는 합의 완료로 쓰지 마.
 ```
+
+예시2
+
+```text
+prompts/discovery/01_INTERVIEW.md를 적용해줘.
+
+[담당자의 실제 답변]
+
+runtime/REQUIREMENTS.md에서 확정·미확정·충돌을 갱신해줘.
+남은 사항은 정책 미정·자료 부족·개발자 선택으로 구분해줘.
+
+중요한 미확정에는 구체적인 재질문 또는
+기본안·대안·대가를 포함한 역제안을 작성해줘.
+아직 답변받지 않은 제안을 합의로 기록하지 마.
+```
+
 완료 판단: 모든 사항의 확정이 아니라 핵심 차단 조건 해소, 나머지의 가정·영향·다음 행동이 명확함.
 
 ## 3. 설계할 때
+
 ```text
 prompts/design/01_SOLUTION.md를 적용해줘.
 입력·결정할 값·필수 제약·개선 목표를 구분하고 기본안과 대안을 비교해줘.
@@ -45,6 +84,7 @@ prompts/design/01_SOLUTION.md를 적용해줘.
 ```
 
 ## 4. 구현을 맡길 때
+
 ```text
 관련 요구·설계·작업표만 읽고 가장 작은 핵심 흐름부터 구현해줘.
 입력 처리·계산·저장·화면을 구분하고 과설계하지 마.
@@ -54,6 +94,9 @@ prompts/design/01_SOLUTION.md를 적용해줘.
 ```
 
 ## 5. 검증과 서술형 준비를 함께 할 때
+
+예시1
+
 ```text
 prompts/review/01_REVIEW_AND_EXPLAIN.md를 적용해줘.
 원문·데이터·코드·실행 결과를 대조하고 기대 결과가 타당한지 확인해줘.
@@ -62,7 +105,25 @@ AI에게 맡긴 검증, 내가 실제 확인한 검증, 미실행·차단·기�
 내 답변 전에 모범답안을 보여주지 말고 실제 답변을 UNDERSTANDING에 기록해줘.
 ```
 
+예시2
+
+```text
+prompts/review/01_REVIEW_AND_EXPLAIN.md를 적용해줘.
+
+관련 요구와 원자료를 기준으로 검증하고,
+runtime/VERIFICATION.md에 계획과 실제 결과를 구분해 기록해줘.
+
+기대 결과의 근거, 실행 명령·입력·실제 결과를 연결해줘.
+AI가 작성·실행한 검사와 내가 실제 확인한 내용을 구분해줘.
+실패·미실행·차단 항목에는 이유와 영향을 적어줘.
+
+내가 수행하지 않은 확인을 완료로 기록하지 마.
+```
+
 ## 6. 변경·오류가 생겼을 때
+
+예시1
+
 ```text
 prompts/change/PROPAGATE_CHANGE.md에 따라 아래 변경을 처리해줘.
 [변경 내용·실제 근거]
@@ -70,7 +131,22 @@ prompts/change/PROPAGATE_CHANGE.md에 따라 아래 변경을 처리해줘.
 기존 검증과 이해 설명 중 재확인이 필요한 것을 표시하고 과거 이력은 보존해줘.
 ```
 
+예시2
+
+```text
+prompts/change/PROPAGATE_CHANGE.md를 적용해줘.
+
+변경 내용: [내용]
+근거: [담당자 답변·데이터·오류·실행 결과]
+
+변경 경위는 runtime/WORKLOG.md에 기록하고,
+영향받는 문서의 현재 내용만 갱신해줘.
+관련 작업과 재검증 항목도 연결해줘.
+과거 실행 결과와 중요한 변경 이력은 보존해줘.
+```
+
 ## 7. 제출 직전
+
 ```text
 새 부가 기능과 큰 재설계는 멈추고 SUBMISSION_DOCUMENT_GUIDE.md대로 최종 확인해줘.
 필수 요구별 구현·최종 검증을 대조하고 미충족·미검증·한계를 구분해줘.
@@ -79,7 +155,37 @@ UNDERSTANDING의 중요한 미확인만 골라 내가 설명하게 해줘.
 플랫폼에서 확인되지 않은 제출 성공을 기록하지 마.
 ```
 
+## 8. 내가 이해한 내용 저장 시
+
+예시1
+
+```text
+내가 과제와 데이터를 제대로 이해했는지 질문 하나씩 해줘.
+내 답변 전에 모범답안을 보여주지 마.
+
+내 답변을 원문·데이터와 대조해서 교정하고,
+runtime/UNDERSTANDING.md에
+내 실제 설명·부족한 부분·근거 위치를 기록해줘.
+```
+
+## 9. 작업 체크리스트 작성 시
+
+예시1
+
+```text
+관련 요구사항·데이터 조사·설계·검증 계획·변경 기록을 바탕으로
+runtime/WORKLOG.md의 작업 체크리스트를 갱신해줘.
+
+핵심 작업을 우선 3~4개 묶음으로 정리하되 필수 요구를 모두 연결해줘.
+각 작업에 요구 ID·완료 기준·검증 ID·우선순위·상태를 붙여줘.
+
+미확정 조건에 영향받는 작업과
+그와 무관하게 진행 가능한 작업을 구분해줘.
+이미 있는 작업은 중복 추가하지 마.
+```
+
 ## 무엇을 할지 모르겠다면
+
 ```text
 과제 지침과 WORKLOG 현재 상태를 확인하고 EXAM_QUICK_GUIDE.md에서
 다음 프롬프트 하나를 선택해 적용해줘. 관련 파일만 읽어줘.
