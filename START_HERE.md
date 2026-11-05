@@ -1,109 +1,55 @@
-# Cofa 과제 수행 문서 키트
-검토용 통합본 v1.3 · 갱신일 2026-10-30
+# 과제 수행·이해 확인 키트
+개정 v2 · 2026-11-05 · 첨부 work-management-skill(2).zip 기준.
 
-## 시험 중 무엇을 요청할지 막막할 때
-[EXAM_QUICK_GUIDE.md](EXAM_QUICK_GUIDE.md)를 먼저 연다. 최근 두 답변의 단계별 요청문·사용 파일·진행 흐름을 통합했다. 현재 상황에 맞는 요청문 하나만 복사한다.
+## 바로 시작
+[EXAM_QUICK_GUIDE.md](EXAM_QUICK_GUIDE.md)에서 현재 단계의 요청문 하나를 사용한다.
+이번 목적은 AI가 만든 결과를 본인이 이해하고 선택·검증·한계를 설명하는 것이다.
+이 파일 묶음은 설치형 SKILL.md가 없는 Markdown 키트다. 자동 설치·공개 저장소 업로드는 하지 않는다.
 
-## 목적
-요구사항 → 결정 → 구현 → 검증 → 설명을 연결한다. 특정 기술이나 앱 구조를 강제하지 않는다.
-이 키트는 공식 채점표·공식 승인 도구가 아니다. 문서 개수나 질문 횟수가 점수를 보장하지 않는다.
+## 이번 수정
+- 원문과 데이터를 함께 먼저 조사하도록 순서를 변경했다.
+- 미확정 → 구체적 재질문 → 역제안 → 실제 합의/개발자 결정/임시 가정/차단으로 처리한다.
+- 계산 문제 정의·기본안·대안·독립 검증을 UI 작업 앞에 둔다.
+- 본인 이해 확인을 조사 후·설계 선택 후·핵심 흐름과 큰 변경 후에 분산한다.
+- DATA_MAP과 UNDERSTANDING을 추가하고 WORKLOG의 중복 이해 기록을 옮겼다.
+- EXAM_QUICK_GUIDE의 중복 흐름·Mermaid를 제거하고 복사용 Markdown으로 축약했다.
+- 존재하지 않던 prep/REVIEW_NOTES.md 링크와 변경 프롬프트의 잘못된 경로를 수정했다.
+- 지난 10월 31일 일정은 과거 안내로 표시했다. 재응시 새 공지가 우선이다.
+- 배포본에서 불필요한 .git 내부 이력·설정을 제외했다. 기존 원격 저장소는 변경하지 않았다.
 
-## 사용 범위
-- 사전 학습과 연습에 사용한다. 실제 시험 적용은 해당 과제와 운영 안내를 따른다.
-- 공개 저장소에 올렸다는 사실만으로 사전 제작 자료 반입이 승인되는 것은 아니다.
-- 제공 README·AGENTS.md·제출 지침을 우선하며 덮어쓰지 않는다.
-- 시험 문제·자료·산출물·기록을 외부로 보내거나 Git Push하지 않는다.
-- 공개 저장소 생성·게시, Skill 설치, 시험 환경 변경은 이 키트 제작에 포함되지 않았다.
-- 후속 서술형에서는 AI와 복사·붙여넣기를 사용하지 않는다. 해당 단계에서 이 문서를 볼 수 있다고 가정하지 않는다.
+## 파일 역할
+| 파일 | 역할·사용 시점 |
+|---|---|
+| [runtime/WORKFLOW.md](runtime/WORKFLOW.md) | 공통 작업 원칙 |
+| [runtime/REQUIREMENTS.md](runtime/REQUIREMENTS.md) | 요구·목표·정책·질문·합의 |
+| [runtime/DATA_MAP.md](runtime/DATA_MAP.md) | 데이터 의미·품질·없는 정보·대표 사례 |
+| [runtime/DESIGN.md](runtime/DESIGN.md) | 계산·스택·대안·실제 모듈·변경 영향 |
+| [runtime/VERIFICATION.md](runtime/VERIFICATION.md) | 기대값·실행·위임/직접 확인·남은 범위 |
+| [runtime/WORKLOG.md](runtime/WORKLOG.md) | 작업·AI 협업·오류·중요 변경 |
+| [runtime/UNDERSTANDING.md](runtime/UNDERSTANDING.md) | 내 실제 설명·교정·근거 색인 |
+| [runtime/HANDOFF.md](runtime/HANDOFF.md) | 중단·전환 시에만 인계 |
+| [prompts/discovery/00_UNDERSTAND_TASK_AND_DATA.md](prompts/discovery/00_UNDERSTAND_TASK_AND_DATA.md) | 초기 과제·데이터 조사 |
+| [prompts/discovery/01_INTERVIEW.md](prompts/discovery/01_INTERVIEW.md) | 질문·재질문·역제안 |
+| [prompts/design/01_SOLUTION.md](prompts/design/01_SOLUTION.md) | 계산·구조·검증 설계 |
+| [prompts/change/PROPAGATE_CHANGE.md](prompts/change/PROPAGATE_CHANGE.md) | 변경점의 관련 문서·작업 전파 |
+| [prompts/review/01_REVIEW_AND_EXPLAIN.md](prompts/review/01_REVIEW_AND_EXPLAIN.md) | 공통 검증·내 설명 확인 |
+| [prompts/review/02_GAP_REVIEW.md](prompts/review/02_GAP_REVIEW.md) | 첫 흐름 후 필요할 때 부족 보완 |
+| [prompts/ui/01_PLAN.md](prompts/ui/01_PLAN.md) · [02_BUILD.md](prompts/ui/02_BUILD.md) · [03_REVIEW.md](prompts/ui/03_REVIEW.md) | UI 필요 시만 사용 |
+| [SUBMISSION_DOCUMENT_GUIDE.md](SUBMISSION_DOCUMENT_GUIDE.md) | 실제 지정 제출 문서로 기록 매핑 |
+| [prep/EVALUATION_REFERENCE.md](prep/EVALUATION_REFERENCE.md) | 후기 기반 참고, 공식 배점 아님 |
+| [prep/TOOLS.md](prep/TOOLS.md) · [prep/PRECHECK.md](prep/PRECHECK.md) | 사전 참고, 최신 안내와 대조 |
 
-## 파일 안내
-| 파일 | 역할 | 갱신 |
-|---|---|---|
-| [prep/EVALUATION_REFERENCE.md](prep/EVALUATION_REFERENCE.md) | 후기 기반 3+1축·증거 기준 | 평가 관점 점검 때 |
-| [prompts/discovery/01_INTERVIEW.md](prompts/discovery/01_INTERVIEW.md) | 발굴·질문·합의 요청 | 초기 조사 후 |
-| [prompts/review/01_REVIEW_AND_EXPLAIN.md](prompts/review/01_REVIEW_AND_EXPLAIN.md) | 공통 검토·본인 설명 확인 | 핵심 흐름 완성 후 |
-| [prompts/review/02_GAP_REVIEW.md](prompts/review/02_GAP_REVIEW.md) | 충족 여부 점검·보완 작업 실행 | 중간·제출 전 |
-| [prep/TOOLS.md](prep/TOOLS.md) | 모델·공개 도구 사용 | 사전 확인 시 |
-| [prep/PRECHECK.md](prep/PRECHECK.md) | 환경 체험·리허설 점검 | 사전 연습 후 |
-| [prep/REVIEW_NOTES.md](prep/REVIEW_NOTES.md) | 후기와 공식 기준 구분 | 전략 변경 시 |
-| [prompts/ui/01_PLAN.md](prompts/ui/01_PLAN.md) | 화면 설계 요청 | 설계 전에 사용 |
-| [prompts/ui/02_BUILD.md](prompts/ui/02_BUILD.md) | 화면 구현 요청 | 구현·수정 시 사용 |
-| [prompts/ui/03_REVIEW.md](prompts/ui/03_REVIEW.md) | 화면 검증·이해 확인 요청 | 핵심 흐름 완성 후 사용 |
-| [runtime/WORKFLOW.md](runtime/WORKFLOW.md) | AI 작업 지침 | 필요할 때 |
-| [runtime/REQUIREMENTS.md](runtime/REQUIREMENTS.md) | 요구·합의·불확실성 | 요구 변경 시 |
-| [runtime/DESIGN.md](runtime/DESIGN.md) | 구조·화면·결정 이유 | 중요 설계 변경 시 |
-| [runtime/VERIFICATION.md](runtime/VERIFICATION.md) | 검증 계획·실행 결과 | 검증 전후 |
-| [runtime/WORKLOG.md](runtime/WORKLOG.md) | 작업·오류·이해 확인 | 의미 있는 작업 단위 |
-| [runtime/HANDOFF.md](runtime/HANDOFF.md) | 세션 인계 | 전환 시에만 |
+## 기록 부담 제한
+- 사실은 한 곳, 다른 곳은 ID·짧은 참조. 매 명령·매 대화마다 전체 갱신하지 않는다.
+- 기존 README는 보존한다. 추가 README를 여러 개 만들지 않는다.
+- 제출 양식에 같은 항목이 있으면 그곳에 직접 기록하고 runtime 복제본을 만들지 않는다.
+- UNDERSTANDING은 짧은 본인 설명 중심이며 긴 답안집·모든 함수 목록을 만들지 않는다.
+- 핵심 3~4개 작업 묶음으로 관리하되 필수 요구를 누락하지 않는다.
+- 화면 검증은 VERIFICATION의 UI 항목으로 통합한다. 별도 화면 결과물이 필수면 그 파일을 참조한다.
+- HANDOFF는 필요할 때만, 평가 관점 전체 점검은 첫 흐름 후 필요할 때만 쓴다.
 
-## 시작 순서
-1. 사전에 prep 문서를 읽고 실행 가능한 방법을 확인한다.
-2. 실제 과제에서는 제공 README와 기존 코드를 먼저 조사한다.
-3. REQUIREMENTS에 필수 요구와 출처를 기록한다.
-4. 미확인 사항 중 결과를 바꾸는 질문을 담당자에게 한다.
-5. DESIGN에 중요한 선택을, VERIFICATION에 기대 결과를 정리한다.
-6. WORKLOG의 현재 작업표로 작은 단위의 구현과 검증을 진행한다.
-7. 핵심 흐름 완성 후 평가 관점으로 부족을 확인하고 WORKLOG 작업에 연결한다.
-8. 우선순위가 높은 보완을 수행하고 관련 검증을 다시 실행한다.
-9. 제출 전 실제 파일·실행 결과·설명의 일치를 확인한다.
-
-## 시작용 요청
-> 제공된 README와 기존 지침·코드부터 확인해줘. runtime/WORKFLOW.md를 작업 절차로 참고하되 과제 지침과 충돌하면 과제 지침을 우선해줘. 필수 제출물, 확정 요구사항, 중요한 미확인 사항을 구분하고 기존 실행 방법을 확인해줘. 준비 문서의 빈칸을 추정으로 채우지 말고, 기존 파일을 덮어쓰거나 큰 구조를 먼저 변경하지 마.
-
-## 문서 관리 원칙
-- prep는 사전 참고, prompts는 단계별 작업 요청, runtime은 공통 지침과 실제 과제 기록이다.
-- 화면이 없는 과제는 prompts/ui를 생략한다. 세 프롬프트를 매번 모두 읽히지 않는다.
-- UI UX Pro Max는 선택 사항이다. 기본은 Codex 단독 설계·구현이며 설치나 사용을 강제하지 않는다.
-- 핵심 갱신 문서는 REQUIREMENTS, DESIGN, VERIFICATION, WORKLOG 네 개다.
-- R01(요구), D01(설계), V01(검증), T01(작업), E01(오류), U01(이해)로 연결한다.
-- 사실은 해당 문서 한 곳에 기록하고 다른 곳에서는 ID를 참조한다.
-- 빈 양식은 필요할 때 행을 추가한다. 모든 항목을 억지로 채우지 않는다.
-- 실행하지 않은 검증은 미실행이다. 문서상 완료가 실제 동작을 대신하지 않는다.
-- AI가 사용자 확인이나 이해를 대신 주장하지 않는다.
-- 확인한 사실·현재 가정·미확인 내용을 구분한다.
-- 매 요청마다 전체 문서를 다시 읽거나 모든 파일을 갱신하지 않는다.
-
-## 기록 연결 예시 — 실제 과제 기록 아님
-R01: 답변 재조회 요구 → D01: 저장 방식 결정 → T01: 구현 → V01: 저장 후 조회 검증.
-오류가 발견되면 E01에 재현·원인·수정 내용을 기록하고 V01을 다시 실행한다.
-
-## 화면 작업 요청 예시
-아래 요청은 해당 단계에 하나씩 사용한다. 경로는 키트 루트 기준이다.
-
-```text
-prompts/ui/01_PLAN.md를 읽고 과제 README와 runtime/REQUIREMENTS.md에 근거해 화면을 설계해줘. 결정은 runtime/DESIGN.md에 기록하고 아직 구현하지 마.
-```
-
-```text
-prompts/ui/02_BUILD.md에 따라 확정한 핵심 흐름부터 구현해줘. 관련 요구·설계만 읽고 실제 검증 결과를 기록해줘.
-```
-
-```text
-prompts/ui/03_REVIEW.md에 따라 핵심 흐름을 검증하고, 실제 코드를 바탕으로 이해 확인 질문 하나를 해줘.
-```
-
-## 공통 점검 요청 예시
-```text
-prompts/review/02_GAP_REVIEW.md를 적용해 현재 과제를 점검해줘.
-공식 예상 점수 대신 실제 증거에 따른 충족 여부와 부족한 부분을 알려줘.
-남은 시간은 [분], 제출 여유는 [분]이야. 값이 없으면 임의로 만들지 마.
-중복 작업은 합치고 WORKLOG에 우선순위와 완료 기준을 연결해줘.
-기존 범위의 안전한 보완은 상위 최대 3개부터 진행하고 관련 검증을 다시 해줘.
-인지 항목은 내 실제 설명으로 확인하고, 답변 전에는 모범 답안을 주지 마.
-```
-
-## 이번 변경 (v1.3)
-- 시험 중 빠른 선택용 EXAM_QUICK_GUIDE.md를 추가했다. 공통 상황 판단 요청과 단계별 복사용 요청을 제공한다.
-
-### 기존 v1.2 변경
-- 후기의 3+1축과 자체 증거 점검 기준을 분리해 저장했다.
-- 발굴·합의, 과제 전체 검토·설명, 평가 관점 점검 프롬프트를 추가했다.
-- 점검 → 보완 작업 → 실행 → 재검증을 연결하고 허위 점수·증거 생성을 금지했다.
-- 합의 요약, 확정 규칙 코드화, 단계 전환 점검, 인계 시점을 보완했다.
-- 기존 UI 프롬프트와 기록 문서는 유지했다. 실제 과제 기록 양식은 빈 상태다.
-
-## 검토할 점
-- 문서 이름과 기록량이 실제 3시간 작업에 적절한가?
-- 구현과 설명에서 내가 이해하지 못할 부분을 드러내는가?
-- 과제와 무관한 기능이나 문서 작성을 강제하지 않는가?
-
+## 적용 한계
+문서가 점수·정답·반입 승인을 보장하지 않는다. 제공 과제·규정이 우선이다.
+시험 자료·실제 기록을 외부로 전송하거나 Git Push하지 않는다. 공개용 빈 양식과 실제 기록을 구분한다.
+후속 AI 금지 문항에서는 사용하지 않는다. 해당 단계의 문서 열람 가능성도 가정하지 않는다.
+이 개정은 문서 구조·링크 점검을 거쳤으며 실제 시험 환경이나 풀타임 리허설로 검증한 것은 아니다.

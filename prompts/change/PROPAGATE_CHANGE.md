@@ -54,7 +54,7 @@
 
 # 사용 예시
 
-prompts/change/01_PROPAGATE_CHANGE.md를 따라 아래 변경을 처리해줘.
+prompts/change/PROPAGATE_CHANGE.md를 따라 아래 변경을 처리해줘.
 
 변경 내용:
 [담당자의 답변 또는 발견한 문제]
@@ -64,3 +64,10 @@ prompts/change/01_PROPAGATE_CHANGE.md를 따라 아래 변경을 처리해줘.
 
 변경이 시작된 지점과 영향 범위를 확인하고,
 영향받는 문서와 작업만 갱신해줘.
+
+## 데이터·이해의 변경 전파
+데이터가 바뀌거나 누락·의미 오류를 발견하면 DATA_MAP의 해당 항목도 갱신한다.
+구조·규칙이 바뀌면 DESIGN의 실제 모듈·파라미터 표를 코드와 대조한다.
+UNDERSTANDING에서 영향받는 기존 설명은 변경 후 재확인으로 표시한다.
+미확정 정책은 discovery/01_INTERVIEW.md의 재질문·역제안 절차를 적용한다.
+과거 검증·사용자 발언을 소급해서 바꾸거나 새 결정을 과거에 했던 것으로 쓰지 않는다.
